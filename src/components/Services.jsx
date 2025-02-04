@@ -44,7 +44,7 @@ function Services() {
   };
 
   return (
-    <div className="w-full max-w-6xl mx-auto bg-[#f8f8fc] my-20 flex md:flex-row justify-between items-center min-h-[600px] p-16">
+    <div className="w-[90%] h-[80vh] mx-auto bg-[#DFDFF1] border border-[#01193D] my-20 flex md:flex-row justify-between items-center min-h-[600px] p-16">
       <div className="w-1/2">
         <p className="text-2xl font-bold text-[#01193D]">
           By offering a 360-degree approach, we provide our clients with a
@@ -64,7 +64,7 @@ function Services() {
                   initial={{ x: 300, y: 0, opacity: 0 }}
                   animate={{
                     x: position * 20,
-                    y: position * 20,
+                    y: position * -20,
                     opacity: 1,
                     scale: 1 - position * 0.05,
                   }}
