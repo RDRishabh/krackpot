@@ -10,6 +10,7 @@ import Form from './components/Form'
 import Footer from './components/Footer'
 import About from './components/About'
 import Services from './components/Services'
+import Passionate from './components/Passionate'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -21,6 +22,7 @@ function App() {
         <HeroSection/>
         <About/>
         <Team/>
+        <Passionate/>
         <Services/>
         <Clientele/>
         <Form/>

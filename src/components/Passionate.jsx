@@ -20,7 +20,7 @@ function Passionate() {
         <p className="text-2xl md:text-3xl font-semibold leading-snug">
           We are passionate about delivering exceptional work that exceeds our clients' expectations.
         </p>
-        <button className="relative bg-[#DFDFF1] text-[#01193D] px-6 py-3 border-2 shadow-[-5px_5px_0px_#000000] border-[#01193D] font-bold flex items-center gap-2 after:content-[''] after:absolute after:top-1 after:left-1 after:w-full after:h-full after:border-2 after:border-[#01193D] after:-z-10 hover:bg-[#01193D] hover:text-[#DFDFF1] transition-all">
+        <button className=" relative bg-[#DFDFF1] w-fit text-[#01193D] px-6 py-3 mt-4 border-2 shadow-[-5px_5px_0px_#000000] border-[#01193D] font-bold flex items-center gap-2 hover:bg-[#01193D] hover:text-[#DFDFF1] transition-all">
           CLICK HERE ▼
         </button>
       </div>
