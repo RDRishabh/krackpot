@@ -48,7 +48,7 @@ function Team() {
       
       {/* Left Arrow (Hidden on Mobile) */}
       <button onClick={previous} className="hidden md:flex px-4 py-2 bg-[#01193D] text-white rounded-md">
-        <img src="/svg/ArrowLeft.svg" alt="Previous" />
+        <img src="/svg/ArrowLeft.svg" alt="Previous" loading="lazy" />
       </button>
 
       {/* Carousel Container */}
@@ -67,12 +67,12 @@ function Team() {
       <div className='flex justify-center gap-6'> 
         {/* Left Arrow (Hidden on Mobile) */}
         <button onClick={previous} className="flex md:hidden px-4 py-2 bg-[#01193D] text-white rounded-md">
-          <img src="/svg/ArrowLeft.svg" alt="Previous" />
+          <img src="/svg/ArrowLeft.svg" alt="Previous" loading="lazy"/>
         </button>
 
         {/* Right Arrow (Hidden on Mobile) */}
         <button onClick={next} className=" md:flex px-4 py-2 bg-[#01193D] text-white rounded-md">
-          <img src="/svg/ArrowRight.svg" alt="Next" />
+          <img src="/svg/ArrowRight.svg" alt="Next" loading="lazy" />
         </button>
       </div>
     </div>
@@ -88,7 +88,7 @@ function PersonCard({ imageUrl, name, position, portfolioUrl }) {
           <div className="relative bg-[#DFDFE8] border-[#01193D] border shadow-lg text-center w-[250px] transition-all duration-300 transform hover:scale-105 flex flex-col items-center justify-start overflow-hidden">
             
             {/* Image */}
-            <img src={imageUrl} alt={name} className="w-full h-[350px] object-cover" />
+            <img src={imageUrl} alt={name} className="w-full h-[350px] object-cover" loading="lazy"/>
             
             {/* Overlay on hover */}
             <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>

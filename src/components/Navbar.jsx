@@ -62,6 +62,7 @@ function Navbar() {
                 src={isScrolled ? "/svg/minimizedlogo.svg" : "/svg/logo.svg"}
                 alt="Krackpot Logo"
                 className="h-12 transition-all duration-300"
+                loading="lazy"
               />
             </div>
           </div>
@@ -99,13 +100,13 @@ function Navbar() {
             {/* Social Links */}
             <div className="flex items-center sm:flex-row gap-3 mt-6">
               <a href="https://linkedin.com" className="hover:opacity-80">
-                <img src="/svg/linkedin.svg" alt="LinkedIn" />
+                <img src="/svg/linkedin.svg" alt="LinkedIn" loading="lazy"/>
               </a>
               <a href="https://facebook.com" className="hover:opacity-80">
-                <img src="/svg/facebook.svg" alt="Facebook" />
+                <img src="/svg/facebook.svg" alt="Facebook" loading="lazy"/>
               </a>
               <a href="https://instagram.com" className="hover:opacity-80">
-                <img src="/svg/instagram.svg" alt="Instagram" />
+                <img src="/svg/instagram.svg" alt="Instagram" loading="lazy"/>
               </a>
             </div>
 
@@ -156,13 +157,13 @@ function Navbar() {
             <div className="w-full h-[40px]"></div>  
             <div className="flex items-center gap-4">
               <a href="https://linkedin.com" className="hover:opacity-80">
-                <img src="/svg/linkedin.svg" alt="LinkedIn"/>
+                <img src="/svg/linkedin.svg" alt="LinkedIn" loading="lazy"/>
               </a>
               <a href="https://facebook.com" className="hover:opacity-80">
-                <img src="/svg/facebook.svg" alt="Facebook" />
+                <img src="/svg/facebook.svg" alt="Facebook" loading="lazy"/>
               </a>
               <a href="https://instagram.com" className="hover:opacity-80">
-                <img src="/svg/instagram.svg" alt="Instagram" />
+                <img src="/svg/instagram.svg" alt="Instagram" loading="lazy"/>
               </a>
             </div>
           </div>

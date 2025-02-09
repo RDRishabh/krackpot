@@ -28,7 +28,7 @@ function Passionate() {
       
       {/* Right Section */}
       <div className="relative md:w-1/2 w-full overflow-hidden h-[50vh] md:h-auto flex justify-center items-center">
-        <img src={images[currentImage].src} alt={images[currentImage].title} className="w-full h-full object-cover" />
+        <img src={images[currentImage].src} alt={images[currentImage].title} className="w-full h-full object-cover" loading="lazy"/>
         <div className="absolute bottom-0 left-0 p-4 sm:p-5 text-white text-sm sm:text-lg font-semibold bg-gradient-to-t from-black to-transparent w-full flex justify-between items-center">
           {images[currentImage].title}
           <button onClick={nextImage} className="text-white text-xl sm:text-2xl">➤</button>

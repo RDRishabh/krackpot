@@ -7,7 +7,7 @@ function About() {
       {/* Left Section with Image */}
       <div className="relative w-full md:w-1/2 flex justify-center p-6 sm:p-8 items-center">
         <div className="rounded-lg overflow-hidden">
-          <img src="/svg/Successfulyears.svg" alt="12 Successful Years" className="w-full max-w-[400px] sm:max-w-[500px] md:max-w-none h-auto" />
+          <img src="/svg/Successfulyears.svg" alt="12 Successful Years" className="w-full max-w-[400px] sm:max-w-[500px] md:max-w-none h-auto" loading="lazy"/>
         </div>
       </div>
 
