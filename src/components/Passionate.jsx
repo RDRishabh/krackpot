@@ -14,7 +14,7 @@ function Passionate() {
   };
 
   return (
-    <div className="w-[90%] mx-auto bg-[#DFDFF1] text-[#01193D] border border-[#01193D] my-20 flex flex-col md:flex-row justify-between items-stretch min-h-[500px] shadow-lg">
+    <div className="w-[90%] h-[80vh] mx-auto bg-[#DFDFF1] text-[#01193D] border border-[#01193D] my-20 flex flex-col md:flex-row justify-between items-stretch min-h-[500px] shadow-lg">
       
       {/* Left Section */}
       <div className="bg-[#01193D] text-white p-6 sm:p-10 flex flex-col justify-center md:w-1/2">

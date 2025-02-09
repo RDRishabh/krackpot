@@ -8,7 +8,7 @@ function Footer() {
           <p className="font-semibold"><strong>ADDRESS:</strong> Goregaon (E), Mumbai - 400063</p>
           <p className="font-semibold"><strong>EMAIL:</strong> krackpotdigital@gmail.com</p>
         </div>
-        <div className="text-center sm:text-right font-bold sm:align-middle space-y-2 sm:space-y-0">
+        <div className=" sm:text-right font-bold sm:align-middle space-y-2 sm:space-y-0">
           <p>All work &copy; M/s Krackpot Designs and Digital Solutions 2025. All rights reserved</p>
         </div>
       </div>

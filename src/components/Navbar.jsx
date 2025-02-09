@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const menuRef = useRef(null); // For detecting clicks outside the menu
+  const overlayRef = useRef(null); // To control the overlay visibility
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,6 +17,22 @@ function Navbar() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setIsMenuOpen(false); // Close menu when clicking outside
+      }
+    };
+
+    if (isMenuOpen) {
+      window.addEventListener("click", handleClickOutside);
+    }
+
+    return () => {
+      window.removeEventListener("click", handleClickOutside);
+    };
+  }, [isMenuOpen]);
 
   const handleNavClick = (e, targetId) => {
     e.preventDefault();
@@ -29,7 +47,7 @@ function Navbar() {
   };
 
   const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
+    setIsMenuOpen(!isMenuOpen );
   };
 
   return (
@@ -38,7 +56,7 @@ function Navbar() {
         {/* Logo */}
         <div className="flex items-center gap-x-4">
           <div className="flex flex-col items-center">
-            <div className="w-full h-[40px] border-l border-r border-[#01193D]"></div>
+            <div className="hidden lg:flex w-full h-[40px] border-l border-r border-[#01193D]"></div>
             <div className="border border-[#01193D] bg-[#01193D] p-2 transition-all duration-300">
               <img
                 src={isScrolled ? "/svg/minimizedlogo.svg" : "/svg/logo.svg"}
@@ -51,10 +69,9 @@ function Navbar() {
 
         {/* Hamburger Menu Icon for mobile */}
         <div className="lg:hidden items-center justify-end p-2" onClick={toggleMenu}>
-          <div className="w-full h-[40px]"></div>
-
+          <div className="hidden lg:flex w-full h-[40px]"></div>
           <button className="text-[#01193D] text-2xl">
-            {isMenuOpen ? "X" : "☰"}
+            {isMenuOpen ? "" : "☰"}
           </button>
         </div>
       </div>
@@ -68,17 +85,19 @@ function Navbar() {
           <button className="text-[#01193D] text-2xl" onClick={toggleMenu}>X</button>
         </div>
 
-        <div className="flex flex-col items-center gap-8 mt-10">
+        <div className="flex flex-col items-center mt-10 justify-around h-full">
           {/* Navbar Links */}
-          <a href="#hero" className="hover:underline" onClick={(e) => handleNavClick(e, "#hero")}>WORK</a>
-          <a href="#about" className="hover:underline" onClick={(e) => handleNavClick(e, "#about")}>ABOUT</a>
-          <a href="#services" className="hover:underline" onClick={(e) => handleNavClick(e, "#services")}>SERVICES</a>
-          <a href="#clients" className="hover:underline" onClick={(e) => handleNavClick(e, "#clients")}>CLIENTS</a>
-          <a href="#contact" className="hover:underline" onClick={(e) => handleNavClick(e, "#contact")}>CONTACT</a>
+          <div className="flex flex-col items-center gap-4">
+            <a href="#hero" className="hover:underline" onClick={(e) => handleNavClick(e, "#hero")}>WORK</a>
+            <a href="#about" className="hover:underline" onClick={(e) => handleNavClick(e, "#about")}>ABOUT</a>
+            <a href="#services" className="hover:underline" onClick={(e) => handleNavClick(e, "#services")}>SERVICES</a>
+            <a href="#clients" className="hover:underline" onClick={(e) => handleNavClick(e, "#clients")}>CLIENTS</a>
+            <a href="#contact" className="hover:underline" onClick={(e) => handleNavClick(e, "#contact")}>CONTACT</a>
+          </div>
 
-          <div>
+          <div className="flex items-center gap-4 justify-end p-2">
             {/* Social Links */}
-            <div className="flex flex-col items-center sm:flex-row gap-3 mt-6">
+            <div className="flex items-center sm:flex-row gap-3 mt-6">
               <a href="https://linkedin.com" className="hover:opacity-80">
                 <img src="/svg/linkedin.svg" alt="LinkedIn" />
               </a>
@@ -104,10 +123,20 @@ function Navbar() {
         </div>
       </div>
 
+
+      {/* Overlay for Background */}
+      {isMenuOpen && (
+        <div
+          ref={overlayRef}
+          className="fixed top-0 left-0 w-full h-full bg-black opacity-20 z-30"
+          onClick={toggleMenu} // Close menu when clicking on the overlay
+        />
+      )}
+
       {/* Desktop Layout - Navbar Links, Social Media and Say Hi */}
       <div className="hidden lg:flex items-center gap-4 w-full justify-between">
         <div>
-          <div className="w-full h-[40px]"></div>
+          <div className="hidden lg:flex w-full h-[40px]"></div>
           <div className="flex items-center gap-4">
             <a href="#hero" className="hover:underline" onClick={(e) => handleNavClick(e, "#hero")}>WORK</a>
             <span>/</span>
@@ -123,8 +152,7 @@ function Navbar() {
 
         {/* Social Links */}
         <div className="flex items-center gap-4 w-full justify-end">
-          
-          <div >
+          <div>
             <div className="w-full h-[40px]"></div>  
             <div className="flex items-center gap-4">
               <a href="https://linkedin.com" className="hover:opacity-80">
@@ -157,3 +185,4 @@ function Navbar() {
 }
 
 export default Navbar;
+ 
