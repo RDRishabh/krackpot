@@ -3,15 +3,22 @@ import React, { useState, useEffect, useRef } from "react";
 function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState(""); // Track the active section
   const menuRef = useRef(null); // For detecting clicks outside the menu
   const overlayRef = useRef(null); // To control the overlay visibility
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(true);
+      const sections = ["hero", "about", "services", "clients", "contact"];
+      for (let i = 0; i < sections.length; i++) {
+        const section = document.getElementById(sections[i]);
+        if (section && window.scrollY >= section.offsetTop -400) {
+          setActiveSection(sections[i]);
+        }
+      }
     };
-
-    window.addEventListener("scroll", handleScroll, { once: true });
+    window.addEventListener("scroll", handleScroll);
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
@@ -89,11 +96,17 @@ function Navbar() {
         <div className="flex flex-col items-center mt-10 justify-around h-full">
           {/* Navbar Links */}
           <div className="flex flex-col items-center gap-4">
-            <a href="#hero" className="hover:underline" onClick={(e) => handleNavClick(e, "#hero")}>WORK</a>
-            <a href="#about" className="hover:underline" onClick={(e) => handleNavClick(e, "#about")}>ABOUT</a>
-            <a href="#services" className="hover:underline" onClick={(e) => handleNavClick(e, "#services")}>SERVICES</a>
-            <a href="#clients" className="hover:underline" onClick={(e) => handleNavClick(e, "#clients")}>CLIENTS</a>
-            <a href="#contact" className="hover:underline" onClick={(e) => handleNavClick(e, "#contact")}>CONTACT</a>
+            {["hero", "about", "services", "clients", "contact"].map((section) => (
+              <a
+                href={`#${section}`}
+                className={`${activeSection === section ? "font-bold" : ""} hover:underline`}
+                onClick={(e) => handleNavClick(e, `#${section}`)}
+                key={section}
+              >
+                { section === "hero" ? "WORK" : section === "about" ? "ABOUT" : section === "services" ? "SERVICES" : section === "clients" ? "CLIENTS" : "CONTACT" }
+                
+              </a>
+            ))}
           </div>
 
           <div className="flex items-center gap-4 justify-end p-2">
@@ -139,15 +152,15 @@ function Navbar() {
         <div>
           <div className="hidden lg:flex w-full h-[40px]"></div>
           <div className="flex items-center gap-4">
-            <a href="#hero" className="hover:underline" onClick={(e) => handleNavClick(e, "#hero")}>WORK</a>
+            <a href="#hero" className={`${activeSection === "hero" ? "font-bold" : ""} hover:underline`} onClick={(e) => handleNavClick(e, "#hero")}>WORK</a>
             <span>/</span>
-            <a href="#about" className="hover:underline" onClick={(e) => handleNavClick(e, "#about")}>ABOUT</a>
+            <a href="#about" className={`${activeSection === "about" ? "font-bold" : ""} hover:underline`} onClick={(e) => handleNavClick(e, "#about")}>ABOUT</a>
             <span>/</span>
-            <a href="#services" className="hover:underline" onClick={(e) => handleNavClick(e, "#services")}>SERVICES</a>
+            <a href="#services" className={`${activeSection === "services" ? "font-bold" : ""} hover:underline`} onClick={(e) => handleNavClick(e, "#services")}>SERVICES</a>
             <span>/</span>
-            <a href="#clients" className="hover:underline" onClick={(e) => handleNavClick(e, "#clients")}>CLIENTS</a>
+            <a href="#clients" className={`${activeSection === "clients" ? "font-bold" : ""} hover:underline`} onClick={(e) => handleNavClick(e, "#clients")}>CLIENTS</a>
             <span>/</span>
-            <a href="#contact" className="hover:underline" onClick={(e) => handleNavClick(e, "#contact")}>CONTACT</a>
+            <a href="#contact" className={`${activeSection === "contact" ? "font-bold" : ""} hover:underline`} onClick={(e) => handleNavClick(e, "#contact")}>CONTACT</a>
           </div>
         </div>
 
