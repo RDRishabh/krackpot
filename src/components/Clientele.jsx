@@ -106,7 +106,7 @@ function Clientele() {
                         ${index % 6 === 0 ? 'border-l-0' : ''} 
                         ${index % 6 === 5 ? 'border-r-0' : ''}`}
                 >
-                    <img src={image.src} alt="Client Logo" className="max-w-full h-auto" />
+                    <img src={image.src} alt="Client Logo" className="max-w-full h-auto" loading="lazy" />
                 </div>
             ))}
           </div>
@@ -128,56 +128,50 @@ function Clientele() {
         <div className="grid grid-cols-6 py-8">
           {/* First Item - 2 Columns */}
           <div className="flex justify-center items-center border-t border-[#01193D] p-4 py-8 col-span-2">
-            <img src="/svg/associations/whiteturtlestudios.svg" alt="White Turtle Studios" className="max-w-full h-auto" />
+            <img src="/svg/associations/whiteturtlestudios.svg" alt="White Turtle Studios" className="max-w-full h-auto" loading="lazy" />
           </div>
 
           {/* Second Item - 1 Column */}
-          <div className="flex justify-center items-center border-t border-l border-[#01193D] p-4 py-8 col-span-1">
-            <img src="/svg/associations/netflix.svg" alt="Netflix" className="max-w-full h-auto" />
+          <div className="flex justify-center items-center border-t border-l border-[#01193D] p-4 py-8 col-span-1" >
+            <img src="/svg/associations/netflix.svg" alt="Netflix" className="max-w-full h-auto" loading="lazy" />
           </div>
 
           {/* Third Item - 1 Column */}
           <div className="flex justify-center items-center border-t border-l border-[#01193D] p-4 py-8 col-span-1">
-            <img src="/svg/associations/prime_video.svg" alt="Prime Video" className="max-w-full h-auto" />
+            <img src="/svg/associations/prime_video.svg" alt="Prime Video" className="max-w-full h-auto" loading="lazy" />
           </div>
 
           {/* Fourth Item - 1 Column */}
           <div className="flex justify-center items-center border-t border-l border-[#01193D] p-4 py-8 col-span-1">
-            <img src="/svg/associations/amazonmini.svg" alt="Amazon Mini" className="max-w-full h-auto" />
+            <img src="/svg/associations/amazonmini.svg" alt="Amazon Mini" className="max-w-full h-auto" loading="lazy" />
           </div>
 
           {/* Fifth Item - 1 Column */}
           <div className="flex justify-center items-center border-t border-l border-[#01193D] p-4 py-8 col-span-1">
-            <img src="/svg/associations/zeestudios.svg" alt="Zee Studios" className="max-w-full h-auto" />
+            <img src="/svg/associations/zeestudios.svg" alt="Zee Studios" className="max-w-full h-auto" loading="lazy" />
           </div>
 
           {/* Sixth Item - 2 Columns */}
           <div className="flex justify-center items-center border-t border-b border-[#01193D] p-4 py-8 col-span-2">
-            <img src="/svg/associations/hansacequity.svg" alt="Hansa Cequity" className="max-w-full h-auto" />
+            <img src="/svg/associations/hansacequity.svg" alt="Hansa Cequity" className="max-w-full h-auto" loading="lazy"/>
           </div>
 
           {/* Seventh Item - 1 Column */}
           <div className="flex justify-center items-center border-t border-l border-b border-[#01193D] p-4 py-8 col-span-1">
-            <img src="/svg/associations/axisbank.svg" alt="Axis Bank" className="max-w-full h-auto" />
+            <img src="/svg/associations/axisbank.svg" alt="Axis Bank" className="max-w-full h-auto" loading="lazy" />
           </div>
 
           {/* Eighth Item - 2 Columns */}
           <div className="flex justify-center items-center border-t border-l border-b border-[#01193D] p-4 py-8 col-span-2">
-            <img src="/svg/associations/ogilyindia.svg" alt="Ogilvy India" className="max-w-full h-auto" />
+            <img src="/svg/associations/ogilyindia.svg" alt="Ogilvy India" className="max-w-full h-auto" loading="lazy" />
           </div>
 
           {/* Ninth Item - 1 Column */}
           <div className="flex justify-center items-center border-t border-l border-b border-[#01193D] p-4 py-8 col-span-1">
-            <img src="/svg/associations/cry.svg" alt="CRY" className="max-w-full h-auto" />
+            <img src="/svg/associations/cry.svg" alt="CRY" className="max-w-full h-auto" loading="lazy"/>
           </div>
         </div>
       )}
-
-
-
-
-
-
 
       {activeSection === "testimonials" && (
         <div className="flex flex-col items-center bg-[#DFDFF1] p-8 my-16 w-full">
