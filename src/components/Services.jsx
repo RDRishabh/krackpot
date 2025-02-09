@@ -38,21 +38,23 @@ function Services() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const handleNext = () => {
-    setActiveIndex(
-      (prevIndex) => (prevIndex - 1 + cards.length) % cards.length
-    );
+    setActiveIndex((prevIndex) => (prevIndex + 1) % cards.length);
   };
 
   return (
-    <div className="w-[90%] h-[80vh] mx-auto bg-[#DFDFF1] border border-[#01193D] my-20 flex md:flex-row justify-between items-center min-h-[600px] p-16">
-      <div className="w-1/2">
-        <p className="text-2xl font-bold text-[#01193D]">
+    <div className="w-[90%] mx-auto bg-[#DFDFF1] border border-[#01193D] my-20 flex flex-col md:flex-row justify-between items-center center min-h-[600px] md:p-8">
+      
+      {/* Left Section: Intro Text */}
+      <div className="w-full md:w-1/2 text-center md:text-left p-6 md:p-0 mb-8 md:mb-0">
+        <p className="text-2xl font-bold text-[#01193D] leading-relaxed">
           By offering a 360-degree approach, we provide our clients with a
           one-stop shop for all their marketing needs, ensuring a cohesive and
           integrated brand experience.
         </p>
       </div>
-      <div className="relative w-1/2 h-[500px] flex justify-center items-center">
+
+      {/* Right Section: Animated Card Stack */}
+      <div className="relative w-full md:w-1/2 flex justify-center items-center min-h-[500px] p-2">
         <div className="relative w-[360px] h-[480px]">
           <AnimatePresence mode="popLayout">
             {cards.map((card, index) => {
@@ -61,7 +63,7 @@ function Services() {
               return (
                 <motion.div
                   key={card.title}
-                  initial={{ x: 300, y: 0, opacity: 0 }}
+                  initial={{ x: 300, opacity: 0 }}
                   animate={{
                     x: position * 20,
                     y: position * -20,
@@ -70,7 +72,7 @@ function Services() {
                   }}
                   exit={{ x: -300, opacity: 0 }}
                   transition={{ duration: 0.5 }}
-                  className="absolute top-0 left-0 w-[360px] h-[420px] bg-[#01193D] text-white rounded-3xl shadow-xl border border-gray-400"
+                  className="absolute w-[280px] h-[420px] md:w-[300px] lg:w-[360px] bg-[#01193D] text-white rounded-3xl shadow-xl border border-gray-400"
                   style={{
                     zIndex: cards.length - position,
                   }}
@@ -90,6 +92,7 @@ function Services() {
                       <button
                         onClick={handleNext}
                         className="absolute bottom-8 right-8 text-2xl font-bold"
+                        aria-label="Next Service"
                       >
                         ≫
                       </button>

@@ -33,9 +33,9 @@ function Navbar() {
   };
 
   return (
-    <div className="w-[90%] mx-auto bg-[#DFDFF1] text-[#01193D] flex justify-between items-center border-b border-r border-[#01193D] sticky top-0 z-50 transition-all duration-300">
-      <div className="flex items-center w-full gap-4">
-        {/* Logo and Hamburger for mobile */}
+    <div className="w-[90%] mx-auto bg-[#DFDFF1] text-[#01193D] flex justify-between items-center border-b border-r border-[#01193D] sticky top-0 z-50 transition-all duration-300 gap-2">
+      <div className={`flex items-center w-full lg:w-fit justify-between gap-4`}>
+        {/* Logo */}
         <div className="flex items-center gap-x-4">
           <div className="flex flex-col items-center">
             <div className="w-full h-[40px] border-l border-r border-[#01193D]"></div>
@@ -43,23 +43,72 @@ function Navbar() {
               <img
                 src={isScrolled ? "/svg/minimizedlogo.svg" : "/svg/logo.svg"}
                 alt="Krackpot Logo"
-                className="w-16 md:w-20 lg:w-24 transition-all duration-300" // Fixed size on mobile and responsive scaling
+                className="h-12 transition-all duration-300"
               />
             </div>
           </div>
         </div>
 
         {/* Hamburger Menu Icon for mobile */}
-        <div className="sm:hidden flex items-center" onClick={toggleMenu}>
+        <div className="lg:hidden items-center justify-end p-2" onClick={toggleMenu}>
+          <div className="w-full h-[40px]"></div>
+
           <button className="text-[#01193D] text-2xl">
             {isMenuOpen ? "X" : "☰"}
           </button>
         </div>
+      </div>
 
-        {/* Navbar Links */}
-        <div className={`sm:flex ${isMenuOpen ? "block" : "hidden"} sm:block flex-col sm:flex-row items-center gap-4 font-semibold`}>
-          <div className="w-full h-[40px]"></div>
+      {/* Sidebar for mobile */}
+      <div
+        className={`fixed top-0 left-0 h-full w-64 bg-[#DFDFF1] border-r border-[#01193D] transform ${isMenuOpen ? "translate-x-0" : "-translate-x-full"} transition-transform duration-300 ease-in-out z-40`}
+      >
+        {/* Close Button inside Sidebar */}
+        <div className="flex justify-end p-4">
+          <button className="text-[#01193D] text-2xl" onClick={toggleMenu}>X</button>
+        </div>
+
+        <div className="flex flex-col items-center gap-8 mt-10">
+          {/* Navbar Links */}
+          <a href="#hero" className="hover:underline" onClick={(e) => handleNavClick(e, "#hero")}>WORK</a>
+          <a href="#about" className="hover:underline" onClick={(e) => handleNavClick(e, "#about")}>ABOUT</a>
+          <a href="#services" className="hover:underline" onClick={(e) => handleNavClick(e, "#services")}>SERVICES</a>
+          <a href="#clients" className="hover:underline" onClick={(e) => handleNavClick(e, "#clients")}>CLIENTS</a>
+          <a href="#contact" className="hover:underline" onClick={(e) => handleNavClick(e, "#contact")}>CONTACT</a>
+
           <div>
+            {/* Social Links */}
+            <div className="flex flex-col items-center sm:flex-row gap-3 mt-6">
+              <a href="https://linkedin.com" className="hover:opacity-80">
+                <img src="/svg/linkedin.svg" alt="LinkedIn" />
+              </a>
+              <a href="https://facebook.com" className="hover:opacity-80">
+                <img src="/svg/facebook.svg" alt="Facebook" />
+              </a>
+              <a href="https://instagram.com" className="hover:opacity-80">
+                <img src="/svg/instagram.svg" alt="Instagram" />
+              </a>
+            </div>
+
+            <div>
+              {/* Contact Button */}
+              <a
+                href="#contact"
+                className="border-[#01193D] px-4 py-2 hover:bg-[#01193D] hover:text-[#DFDFF1] transition-all duration-300 font-extrabold flex items-center justify-center gap-2 mt-6"
+                onClick={(e) => handleNavClick(e, "#contact")}
+              >
+                SAY HI <span className="font-light text-xl leading-none">↗</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Desktop Layout - Navbar Links, Social Media and Say Hi */}
+      <div className="hidden lg:flex items-center gap-4 w-full justify-between">
+        <div>
+          <div className="w-full h-[40px]"></div>
+          <div className="flex items-center gap-4">
             <a href="#hero" className="hover:underline" onClick={(e) => handleNavClick(e, "#hero")}>WORK</a>
             <span>/</span>
             <a href="#about" className="hover:underline" onClick={(e) => handleNavClick(e, "#about")}>ABOUT</a>
@@ -71,33 +120,36 @@ function Navbar() {
             <a href="#contact" className="hover:underline" onClick={(e) => handleNavClick(e, "#contact")}>CONTACT</a>
           </div>
         </div>
-      </div>
 
-      {/* Social Links */}
-      <div className="flex items-center gap-4 w-full justify-end">
-        <div className="w-full h-[40px]"></div> 
-        <div className="flex flex-col items-center sm:flex-row gap-3">
-          <a href="https://linkedin.com" className="hover:opacity-80">
-            <img src="/svg/linkedin.svg" alt="LinkedIn" />
-          </a>
-          <a href="https://facebook.com" className="hover:opacity-80">
-            <img src="/svg/facebook.svg" alt="Facebook" />
-          </a>
-          <a href="https://instagram.com" className="hover:opacity-80">
-            <img src="/svg/instagram.svg" alt="Instagram" />
-          </a>
-        </div>
+        {/* Social Links */}
+        <div className="flex items-center gap-4 w-full justify-end">
+          
+          <div >
+            <div className="w-full h-[40px]"></div>  
+            <div className="flex items-center gap-4">
+              <a href="https://linkedin.com" className="hover:opacity-80">
+                <img src="/svg/linkedin.svg" alt="LinkedIn"/>
+              </a>
+              <a href="https://facebook.com" className="hover:opacity-80">
+                <img src="/svg/facebook.svg" alt="Facebook" />
+              </a>
+              <a href="https://instagram.com" className="hover:opacity-80">
+                <img src="/svg/instagram.svg" alt="Instagram" />
+              </a>
+            </div>
+          </div>
 
-        {/* Contact Button */}
-        <div className="flex flex-col items-center sm:flex-row gap-3">
-          <div className="w-full h-[40px]"></div>
-          <a
-            href="#contact"
-            className="border-[#01193D] px-4 py-2 hover:bg-[#01193D] hover:text-[#DFDFF1] transition-all duration-300 font-extrabold flex items-center justify-center gap-2"
-            onClick={(e) => handleNavClick(e, "#contact")}
-          >
-            SAY HI <span className="font-light text-xl leading-none">↗</span>
-          </a>
+          {/* Contact Button */}
+          <div>
+            <div className="w-full h-[40px]"></div>
+            <a
+              href="#contact"
+              className="border-[#01193D] px-4 py-2 hover:bg-[#01193D] hover:text-[#DFDFF1] transition-all duration-300 font-extrabold flex items-center justify-center gap-2"
+              onClick={(e) => handleNavClick(e, "#contact")}
+            >
+              SAY HI <span className="font-light text-xl leading-none">↗</span>
+            </a>
+          </div>
         </div>
       </div>
     </div>
