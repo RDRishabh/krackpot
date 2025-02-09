@@ -23,15 +23,17 @@ function Form() {
     <div className="w-[90%] mx-auto bg-[#DFDFF1] text-[#01193D] border border-[#01193D] my-20 ">
       {/* Header */}
       <div className="border-b border-[#01193D] pb-4 p-6">
-        <h1 className="text-[24px] font-bold">
+        <h1 className="text-[20px] sm:text-[24px] font-bold">
           It’s Important to remember that we are just one click away,
         </h1>
-        <h1 className="text-[36px] font-bold uppercase">So Let’s Get In Touch</h1>
+        <h1 className="text-[30px] sm:text-[36px] font-bold uppercase">
+          So Let’s Get In Touch
+        </h1>
       </div>
 
       {/* Form */}
       <form onSubmit={handleSubmit} className="mt-6 p-6">
-        <div className="grid grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           {/* Full Name */}
           <div>
             <label className="block font-bold text-sm mb-1">
