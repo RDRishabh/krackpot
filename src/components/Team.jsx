@@ -16,7 +16,7 @@ const data = [
   {
     "imageUrl": "/svg/krish.svg",
     "name": "Krish Goyal",
-    "position": "Developer Head & Founder (French Fries)",
+    "position": "Developer Head & Founder (French Fry Features)",
     "portfolioUrl": "https://www.linkedin.com/in/teslacybot/"
   },
   // Add more entries if needed...
@@ -47,7 +47,9 @@ function Team() {
   return (
     <div className="w-[90%] h-[80vh] mx-auto bg-[#DFDFF1] text-[#01193D] flex justify-between items-center border border-[#01193D] my-20">
       <div className="flex justify-center items-center">
-        <button onClick={previous} className="p-2 bg-[#01193D] text-white ">Prev</button>
+        <button onClick={previous} className="px-4 py-2 bg-[#01193D] text-white rounded-md">
+          <img src="/svg/ArrowLeft.svg" alt="" />
+        </button>
       </div>
       <div className="flex justify-center gap-6 transition-all duration-300">
         {displayedData.map((person, index) => (
@@ -61,7 +63,9 @@ function Team() {
         ))}
       </div>
       <div className="flex justify-center items-center">
-        <button onClick={next} className="p-2 bg-[#01193D] text-white">Next</button>
+        <button onClick={next} className="px-4 py-2 bg-[#01193D] text-white rounded-md">
+          <img src="/svg/ArrowRight.svg" alt="" />
+        </button>
       </div>
     </div>
   );
