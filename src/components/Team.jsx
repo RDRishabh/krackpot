@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useSwipeable } from 'react-swipeable';
 
 const data = [
   {
@@ -39,12 +40,19 @@ function Team() {
     );
   };
 
+  const handlers = useSwipeable({
+    onSwipedLeft: next,
+    onSwipedRight: previous,
+    preventDefaultTouchmoveEvent: true,
+    trackMouse: true
+  });
+
   const displayedData = Array.from({ length: visibleCards }, (_, i) => 
     data[(currentIndex + i) % data.length]
   );
 
   return (
-    <div className="w-[90%] mx-auto bg-[#DFDFF1] text-[#01193D] flex flex-col md:flex-row justify-between items-center border border-[#01193D] my-20 p-6 min-h-[500px]">
+    <div {...handlers} className="w-[90%] mx-auto bg-[#DFDFF1] text-[#01193D] flex flex-col md:flex-row justify-between items-center border border-[#01193D] my-20 p-6 min-h-[500px]">
       
       {/* Left Arrow (Hidden on Mobile) */}
       <button onClick={previous} className="hidden md:flex px-4 py-2 bg-[#01193D] text-white rounded-md">
@@ -65,12 +73,12 @@ function Team() {
       </div>
 
       <div className='flex justify-center gap-6'> 
-        {/* Left Arrow (Hidden on Mobile) */}
+        {/* Left Arrow (Visible on Mobile) */}
         <button onClick={previous} className="flex md:hidden px-4 py-2 bg-[#01193D] text-white rounded-md">
           <img src="/svg/ArrowLeft.svg" alt="Previous" loading="lazy"/>
         </button>
 
-        {/* Right Arrow (Hidden on Mobile) */}
+        {/* Right Arrow (Visible on Mobile) */}
         <button onClick={next} className=" md:flex px-4 py-2 bg-[#01193D] text-white rounded-md">
           <img src="/svg/ArrowRight.svg" alt="Next" loading="lazy" />
         </button>
