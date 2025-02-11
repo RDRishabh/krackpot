@@ -8,6 +8,14 @@ function Navbar() {
   const overlayRef = useRef(null); // To control the overlay visibility
 
   useEffect(() => {
+    if (isMenuOpen) {
+      document.body.classList.add("overflow-hidden");
+    } else {
+      document.body.classList.remove("overflow-hidden");
+    }
+  }, [isMenuOpen]);
+
+  useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(true);
       const sections = ["hero", "about", "services", "clients", "contact"];
@@ -64,7 +72,10 @@ function Navbar() {
         <div className="flex items-center gap-x-4">
           <div className="flex flex-col items-center">
             <div className="hidden lg:flex w-full h-[40px] border-l border-r border-[#01193D]"></div>
-            <div className="border border-[#01193D] bg-[#01193D] p-2 transition-all duration-300">
+            <div
+              className="border border-[#01193D] bg-[#01193D] p-2 transition-all duration-300 cursor-pointer"
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            >
               <img
                 src={isScrolled ? "/svg/minimizedlogo.svg" : "/svg/logo.svg"}
                 alt="Krackpot Logo"
