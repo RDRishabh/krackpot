@@ -176,10 +176,10 @@ function Navbar() {
         </div>
 
         {/* Social Links */}
-        <div className="flex items-center gap-4 w-full justify-end">
+        <div className="flex items-center gap-4 w-full justify-end border">
           <div>
-            <div className="w-full h-[40px]"></div>  
-            <div className="flex items-center gap-4">
+             <div className="w-full h-[40px]"></div>  
+           <div className="flex items-center w-max h-max gap-4 border border-[#01193D] p-2">
               <a href="https://linkedin.com" className="hover:opacity-80">
                 <img src="/svg/linkedin.svg" alt="LinkedIn" loading="lazy"/>
               </a>
@@ -193,11 +193,11 @@ function Navbar() {
           </div>
 
           {/* Contact Button */}
-          <div>
-            <div className="w-full h-[40px]"></div>
+          <div className="h-full">
+            <div className="w-full h-[40px] border border-[#01193D]"></div>
             <a
               href="#contact"
-              className="border-[#01193D] px-4 py-2 hover:bg-[#01193D] hover:text-[#DFDFF1] transition-all duration-300 font-extrabold flex items-center justify-center gap-2"
+              className="border border-[#01193D] px-4 py-2 hover:bg-[#01193D] hover:text-[#DFDFF1] transition-all duration-300 font-extrabold flex items-center justify-center gap-2"
               onClick={(e) => handleNavClick(e, "#contact")}
             >
               SAY HI <span className="font-light text-xl leading-none">↗</span>

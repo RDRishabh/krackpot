@@ -3,23 +3,29 @@ import { useSwipeable } from 'react-swipeable';
 
 const data = [
   {
-    "imageUrl": "/svg/aditya.svg",
+    "imageUrl": "/svg/aditya.png",
     "name": "AdityaKumar Nayak",
     "position": "Founder & Creative Head",
     "portfolioUrl": "https://www.linkedin.com/in/adityakumar-nayak-29136a2b/"
   },
   {
-    "imageUrl": "/svg/sushmi.svg",
+    "imageUrl": "/svg/sushmi.png",
     "name": "Sushmita Nayak",
     "position": "Co - Founder & Business Head",
     "portfolioUrl": "https://www.linkedin.com/in/sushmita-nayak-357b85331/"
   },
   {
-    "imageUrl": "/svg/krish.svg",
+    "imageUrl": "/svg/krish.png",
     "name": "Krish Goyal",
     "position": "Developer Head & Founder (French Fry Features)",
     "portfolioUrl": "https://www.linkedin.com/in/teslacybot/"
   },
+  {
+    "imageUrl": "/svg/tanya.png",
+    "name": "Tanya Goyal",
+    "position": "Digital Marketing Lead (French Fry Features)",
+    "portfolioUrl": "https://www.linkedin.com/in/tanya-goyal-8b8539267/"
+  }
   // Add more entries if needed...
 ];
 
@@ -28,7 +34,7 @@ function Team() {
 
   // Controls the number of cards visible based on screen size
   const isMobile = window.innerWidth < 768;
-  const visibleCards = isMobile ? 1 : 3;
+  const visibleCards = isMobile ? 1 : 2;
 
   const next = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % data.length);
@@ -52,7 +58,7 @@ function Team() {
   );
 
   return (
-    <div {...handlers} className="w-[90%] mx-auto bg-[#DFDFF1] text-[#01193D] flex flex-col md:flex-row justify-between items-center border border-[#01193D] my-20 p-6 min-h-[500px]">
+    <div {...handlers} className="w-[90%] h-[80vh] mx-auto bg-[#DFDFF1] text-[#01193D] flex flex-col md:flex-row justify-between items-center border border-[#01193D] my-20 p-6 min-h-[500px]">
       
       {/* Left Arrow (Hidden on Mobile) */}
       <button onClick={previous} className="hidden md:flex px-4 py-2 bg-[#01193D] text-white rounded-md">
@@ -115,9 +121,10 @@ function PersonCard({ imageUrl, name, position, portfolioUrl }) {
       </div>
 
       {/* Position */}
-      <div className="p-2 flex flex-col items-center justify-start text-[#01193D] text-wrap">
+      <div className="p-2 flex flex-col items-center justify-center text-[#01193D] text-wrap min-h-[60px] border border-[#01193D] border-t-0 bg-[#DFDFE8]">
         <p className="text-md text-center font-medium">{position}</p>
       </div>
+
     </div>
   );
 }
