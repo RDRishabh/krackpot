@@ -9,14 +9,66 @@ function Form() {
     message: "",
   });
 
+  const [status, setStatus] = useState({
+    submitting: false,
+    error: null
+  });
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    window.location.href = `mailto:rishabhdidwania22@gmail.com?subject=Enquiry&body=Full Name: ${formData.fullName}%0D%0AEmail: ${formData.email}%0D%0ACompany: ${formData.company}%0D%0AService: ${formData.service}%0D%0AMessage: ${formData.message}`;
+    setStatus({ submitting: true, error: null });
+
+    // Create a new form data object
+    const form = new FormData();
+    Object.keys(formData).forEach(key => {
+      form.append(key, formData[key]);
+    });
+    // Log the form data correctly
+    for (let pair of form.entries()) {
+      console.log(pair[0] + ': ' + pair[1]); // This will show the actual form data
+    }
+
+    // Convert form data to URL-encoded string
+    const urlEncodedData = new URLSearchParams(formData).toString();
+
+    try {
+      const response = await fetch(
+        "https://script.google.com/macros/s/AKfycbwxlLfyl9ary8cMpGQoL6yGdgaHG_o0AeOl_s9ycZ1_rqNuW4KwTw1MdcTuZHzoow0qQQ/exec",
+        {
+          method: "POST",
+          mode: "no-cors",
+          body: urlEncodedData,
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+        }
+      );
+
+      // Since we're using no-cors, we won't get a normal response
+      // We'll assume success if we get here
+      alert("Your enquiry has been submitted successfully!");
+      setFormData({
+        fullName: "",
+        email: "",
+        company: "",
+        service: "",
+        message: "",
+      });
+    } catch (error) {
+      console.error("Error:", error);
+      setStatus({
+        submitting: false,
+        error: "Failed to submit. Please try again."
+      });
+      alert("Failed to submit. Please try again.");
+    } finally {
+      setStatus({ submitting: false, error: null });
+    }
   };
 
   return (
@@ -116,9 +168,10 @@ function Form() {
         <div className="mt-6 flex justify-end">
           <button
             type="submit"
-            className="bg-[#01193D] text-[#DFDFF1] px-6 py-3 font-bold"
+            disabled={status.submitting}
+            className="bg-[#01193D] text-[#DFDFF1] px-6 py-3 font-bold disabled:opacity-50"
           >
-            SUBMIT YOUR ENQUIRY
+            {status.submitting ? "SUBMITTING..." : "SUBMIT YOUR ENQUIRY"}
           </button>
         </div>
       </form>

@@ -66,7 +66,7 @@ function Navbar() {
   };
 
   return (
-    <div className="w-[90%] mx-auto bg-[#DFDFF1] text-[#01193D] flex justify-between items-center border-b border-r border-[#01193D] sticky top-0 z-50 transition-all duration-300 gap-2">
+    <div className="w-[90%] mx-auto bg-[#DFDFF1] text-[#01193D]  flex justify-between items-center border-b border-r border-[#01193D] sticky top-0 z-50 transition-all duration-300 ">
       <div className={`flex items-center w-full lg:w-fit justify-between gap-4`}>
         {/* Logo */}
         <div className="flex items-center gap-x-4">
@@ -159,51 +159,51 @@ function Navbar() {
       )}
 
       {/* Desktop Layout - Navbar Links, Social Media and Say Hi */}
-      <div className="hidden lg:flex items-center gap-4 w-full justify-between">
-        <div>
-          <div className="hidden lg:flex w-full h-[40px]"></div>
+      <div className="hidden lg:flex flex-col w-full ">
+          <div className="w-full h-[40px] align-baseline"></div>
+        
           <div className="flex items-center gap-4">
-            <a href="#hero" className={`${activeSection === "hero" ? "font-bold" : ""} hover:underline`} onClick={(e) => handleNavClick(e, "#hero")}>WORK</a>
-            <span>/</span>
-            <a href="#about" className={`${activeSection === "about" ? "font-bold" : ""} hover:underline`} onClick={(e) => handleNavClick(e, "#about")}>ABOUT</a>
-            <span>/</span>
-            <a href="#services" className={`${activeSection === "services" ? "font-bold" : ""} hover:underline`} onClick={(e) => handleNavClick(e, "#services")}>SERVICES</a>
-            <span>/</span>
-            <a href="#clients" className={`${activeSection === "clients" ? "font-bold" : ""} hover:underline`} onClick={(e) => handleNavClick(e, "#clients")}>CLIENTS</a>
-            <span>/</span>
-            <a href="#contact" className={`${activeSection === "contact" ? "font-bold" : ""} hover:underline`} onClick={(e) => handleNavClick(e, "#contact")}>CONTACT</a>
-          </div>
-        </div>
+            <div className="flex items-center gap-4 p-2">
+              <a href="#hero" className={`${activeSection === "hero" ? "font-bold" : ""} hover:underline`} onClick={(e) => handleNavClick(e, "#hero")}>WORK</a>
+              <span>/</span>
+              <a href="#about" className={`${activeSection === "about" ? "font-bold" : ""} hover:underline`} onClick={(e) => handleNavClick(e, "#about")}>ABOUT</a>
+              <span>/</span>
+              <a href="#services" className={`${activeSection === "services" ? "font-bold" : ""} hover:underline`} onClick={(e) => handleNavClick(e, "#services")}>SERVICES</a>
+              <span>/</span>
+              <a href="#clients" className={`${activeSection === "clients" ? "font-bold" : ""} hover:underline`} onClick={(e) => handleNavClick(e, "#clients")}>CLIENTS</a>
+              <span>/</span>
+              <a href="#contact" className={`${activeSection === "contact" ? "font-bold" : ""} hover:underline`} onClick={(e) => handleNavClick(e, "#contact")}>CONTACT</a>
+            </div>
+          {/* </div> */}
 
-        {/* Social Links */}
-        <div className="flex items-center gap-4 w-full justify-end border">
-          <div>
-             <div className="w-full h-[40px]"></div>  
-           <div className="flex items-center w-max h-max gap-4 border border-[#01193D] p-2">
-              <a href="https://linkedin.com" className="hover:opacity-80">
-                <img src="/svg/linkedin.svg" alt="LinkedIn" loading="lazy"/>
-              </a>
-              <a href="https://facebook.com" className="hover:opacity-80">
-                <img src="/svg/facebook.svg" alt="Facebook" loading="lazy"/>
-              </a>
-              <a href="https://instagram.com" className="hover:opacity-80">
-                <img src="/svg/instagram.svg" alt="Instagram" loading="lazy"/>
-              </a>
+          {/* Social Links */}
+          <div className="flex items-center gap-4 w-full justify-end border">
+            <div>
+              <div className="flex items-center w-max h-max gap-4  p-2">
+                  <a href="https://linkedin.com" className="hover:opacity-80">
+                    <img src="/svg/linkedin.svg" alt="LinkedIn" loading="lazy"/>
+                  </a>
+                  <a href="https://facebook.com" className="hover:opacity-80">
+                    <img src="/svg/facebook.svg" alt="Facebook" loading="lazy"/>
+                  </a>
+                  <a href="https://instagram.com" className="hover:opacity-80">
+                    <img src="/svg/instagram.svg" alt="Instagram" loading="lazy"/>
+                  </a>
+                </div>
+              </div>
+
+              {/* Contact Button */}
+              <div className="h-full">
+                <a
+                  href="#contact"
+                  className=" px-4 py-2 hover:bg-[#01193D] hover:text-[#DFDFF1] transition-all duration-300 font-extrabold flex items-center justify-center gap-2"
+                  onClick={(e) => handleNavClick(e, "#contact")}
+                >
+                  SAY HI <span className="font-light text-xl leading-none">↗</span>
+                </a>
+              </div>
             </div>
           </div>
-
-          {/* Contact Button */}
-          <div className="h-full">
-            <div className="w-full h-[40px] border border-[#01193D]"></div>
-            <a
-              href="#contact"
-              className="border border-[#01193D] px-4 py-2 hover:bg-[#01193D] hover:text-[#DFDFF1] transition-all duration-300 font-extrabold flex items-center justify-center gap-2"
-              onClick={(e) => handleNavClick(e, "#contact")}
-            >
-              SAY HI <span className="font-light text-xl leading-none">↗</span>
-            </a>
-          </div>
-        </div>
       </div>
     </div>
   );
