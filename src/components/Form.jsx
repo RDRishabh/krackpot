@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Form() {
   const [formData, setFormData] = useState({
@@ -33,6 +35,18 @@ function Form() {
       console.log(pair[0] + ': ' + pair[1]); // This will show the actual form data
     }
 
+    if (!formData.fullName.trim()) {
+      toast.error("Full Name is required!");
+      setStatus({ submitting: false, error: "Full Name is missing" });
+      return;
+    }
+    if (!formData.company.trim()) {
+      toast.error("Company/Brand Name is required!");
+      setStatus({ submitting: false, error: "Company Name is missing" });
+      return;
+    }
+
+    
     // Convert form data to URL-encoded string
     const urlEncodedData = new URLSearchParams(formData).toString();
 
@@ -51,7 +65,7 @@ function Form() {
 
       // Since we're using no-cors, we won't get a normal response
       // We'll assume success if we get here
-      alert("Your enquiry has been submitted successfully!");
+      toast.success("Your enquiry has been submitted successfully!");
       setFormData({
         fullName: "",
         email: "",

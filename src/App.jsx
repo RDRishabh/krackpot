@@ -8,12 +8,14 @@ import Footer from './components/Footer'
 import About from './components/About'
 import Services from './components/Services'
 import Passionate from './components/Passionate'
+import { ToastContainer } from "react-toastify";
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <div>
+      <ToastContainer position="top-right" autoClose={3000} />
       <Navbar />
       <div id="hero">
         <HeroSection />
