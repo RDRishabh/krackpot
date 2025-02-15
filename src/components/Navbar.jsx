@@ -21,7 +21,7 @@ function Navbar() {
       const sections = ["hero", "about", "services", "clients", "contact"];
       for (let i = 0; i < sections.length; i++) {
         const section = document.getElementById(sections[i]);
-        if (section && window.scrollY >= section.offsetTop -400) {
+        if (section && window.scrollY >= section.offsetTop - 400) {
           setActiveSection(sections[i]);
         }
       }
@@ -62,12 +62,14 @@ function Navbar() {
   };
 
   const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen );
+    setIsMenuOpen(!isMenuOpen);
   };
 
   return (
-    <div className="w-[90%] mx-auto bg-[#DFDFF1] text-[#01193D]  flex justify-between items-center border-b border-r border-[#01193D] sticky top-0 z-50 transition-all duration-300 ">
-      <div className={`flex items-center w-full lg:w-fit justify-between gap-4`}>
+    <div className="w-[90%] h-fit mx-auto bg-[#DFDFF1] text-[#01193D] flex justify-between items-start border-b border-r border-[#01193D] sticky top-0 z-50 transition-all duration-300 ">
+      <div
+        className={`flex items-center w-full lg:w-fit justify-between gap-4`}
+      >
         {/* Logo */}
         <div className="flex items-center gap-x-4">
           <div className="flex flex-col items-center">
@@ -87,7 +89,10 @@ function Navbar() {
         </div>
 
         {/* Hamburger Menu Icon for mobile */}
-        <div className="lg:hidden items-center justify-end p-2" onClick={toggleMenu}>
+        <div
+          className="lg:hidden items-center justify-end p-2"
+          onClick={toggleMenu}
+        >
           <div className="hidden lg:flex w-full h-[40px]"></div>
           <button className="text-[#01193D] text-2xl">
             {isMenuOpen ? "" : "☰"}
@@ -97,57 +102,72 @@ function Navbar() {
 
       {/* Sidebar for mobile */}
       <div
-        className={`fixed top-0 left-0 h-full w-64 bg-[#DFDFF1] border-r border-[#01193D] transform ${isMenuOpen ? "translate-x-0" : "-translate-x-full"} transition-transform duration-300 ease-in-out z-40`}
+        className={`fixed top-0 left-0 h-full w-64 bg-[#DFDFF1] border-r border-[#01193D] transform ${
+          isMenuOpen ? "translate-x-0" : "-translate-x-full"
+        } transition-transform duration-300 ease-in-out z-40`}
       >
         {/* Close Button inside Sidebar */}
         <div className="flex justify-end p-4">
-          <button className="text-[#01193D] text-2xl" onClick={toggleMenu}>X</button>
+          <button className="text-[#01193D] text-2xl" onClick={toggleMenu}>
+            X
+          </button>
         </div>
 
         <div className="flex flex-col items-center mt-10 justify-around h-full">
           {/* Navbar Links */}
           <div className="flex flex-col items-center gap-4">
-            {["hero", "about", "services", "clients", "contact"].map((section) => (
-              <a
-                href={`#${section}`}
-                className={`${activeSection === section ? "font-bold" : ""} hover:underline`}
-                onClick={(e) => handleNavClick(e, `#${section}`)}
-                key={section}
-              >
-                { section === "hero" ? "WORK" : section === "about" ? "ABOUT" : section === "services" ? "SERVICES" : section === "clients" ? "CLIENTS" : "CONTACT" }
-                
-              </a>
-            ))}
+            {["hero", "about", "services", "clients", "contact"].map(
+              (section) => (
+                <a
+                  href={`#${section}`}
+                  className={`${
+                    activeSection === section ? "font-bold text-[#DB9D00]" : ""
+                  } hover:underline`}
+                  onClick={(e) => handleNavClick(e, `#${section}`)}
+                  key={section}
+                >
+                  {section === "hero"
+                    ? "WORK"
+                    : section === "about"
+                    ? "ABOUT"
+                    : section === "services"
+                    ? "SERVICES"
+                    : section === "clients"
+                    ? "CLIENTS"
+                    : "CONTACT"}
+                </a>
+              )
+            )}
           </div>
 
           <div className="flex items-center gap-4 justify-end p-2">
             {/* Social Links */}
-            <div className="flex items-center sm:flex-row gap-3 mt-6">
+            <div className="flex items-center sm:flex-row gap-3 mt-6  border-[#01193D]">
               <a href="https://linkedin.com" className="hover:opacity-80">
-                <img src="/svg/linkedin.svg" alt="LinkedIn" loading="lazy"/>
+                <img src="/svg/linkedin.svg" alt="LinkedIn" loading="lazy" />
               </a>
               <a href="https://facebook.com" className="hover:opacity-80">
-                <img src="/svg/facebook.svg" alt="Facebook" loading="lazy"/>
+                <img src="/svg/facebook.svg" alt="Facebook" loading="lazy" />
               </a>
               <a href="https://instagram.com" className="hover:opacity-80">
-                <img src="/svg/instagram.svg" alt="Instagram" loading="lazy"/>
+                <img src="/svg/instagram.svg" alt="Instagram" loading="lazy" />
               </a>
             </div>
 
-            <div>
+            <div className="border border-[#01193]">
               {/* Contact Button */}
               <a
                 href="#contact"
                 className="border-[#01193D] px-4 py-2 hover:bg-[#01193D] hover:text-[#DFDFF1] transition-all duration-300 font-extrabold flex items-center justify-center gap-2 mt-6"
                 onClick={(e) => handleNavClick(e, "#contact")}
               >
-                SAY HI <span className="font-light text-xl leading-none">↗</span>
+                SAY HI{" "}
+                <span className="font-light text-xl leading-none">↗</span>
               </a>
             </div>
           </div>
         </div>
       </div>
-
 
       {/* Overlay for Background */}
       {isMenuOpen && (
@@ -159,55 +179,103 @@ function Navbar() {
       )}
 
       {/* Desktop Layout - Navbar Links, Social Media and Say Hi */}
-      <div className="hidden lg:flex flex-col w-full ">
-          <div className="w-full h-[40px] align-baseline"></div>
-        
-          <div className="flex items-center gap-4">
-            <div className="flex items-center gap-4 p-2">
-              <a href="#hero" className={`${activeSection === "hero" ? "font-bold" : ""} hover:underline`} onClick={(e) => handleNavClick(e, "#hero")}>WORK</a>
-              <span>/</span>
-              <a href="#about" className={`${activeSection === "about" ? "font-bold" : ""} hover:underline`} onClick={(e) => handleNavClick(e, "#about")}>ABOUT</a>
-              <span>/</span>
-              <a href="#services" className={`${activeSection === "services" ? "font-bold" : ""} hover:underline`} onClick={(e) => handleNavClick(e, "#services")}>SERVICES</a>
-              <span>/</span>
-              <a href="#clients" className={`${activeSection === "clients" ? "font-bold" : ""} hover:underline`} onClick={(e) => handleNavClick(e, "#clients")}>CLIENTS</a>
-              <span>/</span>
-              <a href="#contact" className={`${activeSection === "contact" ? "font-bold" : ""} hover:underline`} onClick={(e) => handleNavClick(e, "#contact")}>CONTACT</a>
-            </div>
+      <div className="hidden lg:flex flex-col w-full h-full">
+        <div className="w-full align-baseline  border-green-500 min-h-[40px] inline-block">
+          <div className="w-[8.8%] border border-[#01193D] border-t-0 border-b-0 border-r-0 h-[2.49em] float-end">
+
+          </div>
+        </div>
+
+        <div className="flex  gap-4   border-green-500 h-[4.1em]">
+          <div className="flex items-center gap-4  p-2">
+            <a
+              href="#hero"
+              className={`${
+                activeSection === "hero" ? "font-bold text-[#DB9D00]" : ""
+              } hover:underline`}
+              onClick={(e) => handleNavClick(e, "#hero")}
+            >
+              WORK
+            </a>
+            <span>/</span>
+            <a
+              href="#about"
+              className={`${
+                activeSection === "about" ? "font-bold text-[#DB9D00]" : ""
+              } hover:underline`}
+              onClick={(e) => handleNavClick(e, "#about")}
+            >
+              ABOUT
+            </a>
+            <span>/</span>
+            <a
+              href="#services"
+              className={`${
+                activeSection === "services" ? "font-bold text-[#DB9D00]" : ""
+              } hover:underline`}
+              onClick={(e) => handleNavClick(e, "#services")}
+            >
+              SERVICES
+            </a>
+            <span>/</span>
+            <a
+              href="#clients"
+              className={`${
+                activeSection === "clients" ? "font-bold text-[#DB9D00]" : ""
+              } hover:underline`}
+              onClick={(e) => handleNavClick(e, "#clients")}
+            >
+              CLIENTS
+            </a>
+            <span>/</span>
+            <a
+              href="#contact"
+              className={`${
+                activeSection === "contact" ? "font-bold text-[#DB9D00]" : ""
+              } hover:underline`}
+              onClick={(e) => handleNavClick(e, "#contact")}
+            >
+              CONTACT
+            </a>
+          </div>
           {/* </div> */}
 
           {/* Social Links */}
-          <div className="flex items-center gap-4 w-full justify-end border">
-            <div>
-              <div className="flex items-center w-max h-max gap-4  p-2">
-                  <a href="https://linkedin.com" className="hover:opacity-80">
-                    <img src="/svg/linkedin.svg" alt="LinkedIn" loading="lazy"/>
-                  </a>
-                  <a href="https://facebook.com" className="hover:opacity-80">
-                    <img src="/svg/facebook.svg" alt="Facebook" loading="lazy"/>
-                  </a>
-                  <a href="https://instagram.com" className="hover:opacity-80">
-                    <img src="/svg/instagram.svg" alt="Instagram" loading="lazy"/>
-                  </a>
-                </div>
-              </div>
-
-              {/* Contact Button */}
-              <div className="h-full">
-                <a
-                  href="#contact"
-                  className=" px-4 py-2 hover:bg-[#01193D] hover:text-[#DFDFF1] transition-all duration-300 font-extrabold flex items-center justify-center gap-2"
-                  onClick={(e) => handleNavClick(e, "#contact")}
-                >
-                  SAY HI <span className="font-light text-xl leading-none">↗</span>
+          <div className="flex items-center gap-4 gap-x-0 w-full justify-end border-[#01193D]  h-[100%] ">
+            <div className="border border-[#01193D]  border-b-0 h-[100%] flex items-center">
+              <div className="flex items-center w-max h-max gap-4 p-2 ">
+                <a href="https://linkedin.com" className="hover:opacity-80">
+                  <img src="/svg/linkedin.svg" alt="LinkedIn" loading="lazy" />
+                </a>
+                <a href="https://facebook.com" className="hover:opacity-80">
+                  <img src="/svg/facebook.svg" alt="Facebook" loading="lazy" />
+                </a>
+                <a href="https://instagram.com" className="hover:opacity-80">
+                  <img
+                    src="/svg/instagram.svg"
+                    alt="Instagram"
+                    loading="lazy"
+                  />
                 </a>
               </div>
             </div>
+
+            {/* Contact Button */}
+            <div className="h-full border border-[#01193D]  border-b-0 border-l-0 flex items-center">
+              <a
+                href="#contact"
+                className=" px-4 py-2 hover:bg-[#01193D] hover:text-[#DFDFF1] transition-all duration-300 font-extrabold flex items-center justify-center gap-2"
+                onClick={(e) => handleNavClick(e, "#contact")}
+              >
+                SAY HI{" "}
+                <span className="font-light text-xl leading-none">↗</span>
+              </a>
+            </div>
           </div>
+        </div>
       </div>
     </div>
   );
 }
 
 export default Navbar;
- 

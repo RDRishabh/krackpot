@@ -78,7 +78,7 @@ function Services() {
                   }}
                 >
                   <div className="p-8 h-full flex flex-col">
-                    <h2 className="text-2xl font-bold mb-6">{card.title}</h2>
+                    <h2 className=" text-2xl font-bold mb-6 text-[#DB9D00]">{card.title}</h2>
                     <div className="h-px bg-white/20 mb-6" />
                     <ul className="space-y-4 flex-grow">
                       {card.content.map((item, idx) => (
