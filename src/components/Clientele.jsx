@@ -123,42 +123,42 @@ function Clientele() {
 
           {/* Second Item - 1 Column */}
           <div className="flex justify-center items-center border sm:border-l border-[#01193D] p-4 py-4 sm:py-8 col-span-1">
-            <img src="/svg/associations/netflix.svg" alt="Netflix" className="max-w-full h-24 sm:h-32" loading="lazy" />
+            <img src="/svg/associations/netflix.svg" alt="Netflix" className="max-w-full h-24 sm:h-32 mix-blend-multiply" loading="lazy" />
           </div>
 
           {/* Third Item - 1 Column */}
           <div className="flex justify-center items-center border sm:border-l border-[#01193D] p-4 py-4 sm:py-8 col-span-1">
-            <img src="/svg/associations/prime_video.svg" alt="Prime Video" className="max-w-full h-24 sm:h-32" loading="lazy" />
+            <img src="/svg/associations/prime_video.svg" alt="Prime Video" className="max-w-full h-24 sm:h-32 mix-blend-multiply" loading="lazy" />
           </div>
 
           {/* Fourth Item - 1 Column */}
           <div className="flex justify-center items-center border sm:border-l border-[#01193D] p-4 py-4 sm:py-8 col-span-1">
-            <img src="/svg/associations/amazonmini.svg" alt="Amazon Mini" className="max-w-full h-24 sm:h-32" loading="lazy" />
+            <img src="/svg/associations/amazonmini.svg" alt="Amazon Mini" className="max-w-full h-24 sm:h-32 mix-blend-multiply" loading="lazy" />
           </div>
 
           {/* Fifth Item - 1 Column */}
           <div className="flex justify-center items-center border sm:border-l border-[#01193D] p-4 py-4 sm:py-8 col-span-1">
-            <img src="/svg/associations/zeestudios.svg" alt="Zee Studios" className="max-w-full h-24 sm:h-32" loading="lazy" />
+            <img src="/svg/associations/zeestudios.svg" alt="Zee Studios" className="max-w-full h-24 sm:h-32 mix-blend-multiply" loading="lazy" />
           </div>
 
           {/* Sixth Item - 2 Columns on large screens, 1 on mobile */}
           <div className="flex justify-center items-center border border-b border-[#01193D] p-4 py-4 sm:py-8 col-span-2 sm:col-span-1 lg:col-span-2">
-            <img src="/svg/associations/hansacequity.svg" alt="Hansa Cequity" className="max-w-full h-24 sm:h-32" loading="lazy"/>
+            <img src="/svg/associations/hansacequity.svg" alt="Hansa Cequity" className="max-w-full h-24 sm:h-32 mix-blend-multiply" loading="lazy"/>
           </div>
 
           {/* Seventh Item - 1 Column */}
           <div className="flex justify-center items-center border sm:border-l border-b border-[#01193D] p-4 py-4 sm:py-8 col-span-1">
-            <img src="/svg/associations/axisbank.svg" alt="Axis Bank" className="max-w-full h-24 sm:h-32" loading="lazy" />
+            <img src="/svg/associations/axisbank.svg" alt="Axis Bank" className="max-w-full h-24 sm:h-32 mix-blend-multiply" loading="lazy" />
           </div>
 
           {/* Eighth Item - 2 Columns on large screens, 1 on mobile */}
           <div className="flex justify-center items-center border sm:border-l border-b border-[#01193D] p-4 py-4 sm:py-8 col-span-2 sm:col-span-1 lg:col-span-2">
-            <img src="/svg/associations/ogilyindia.svg" alt="Ogilvy India" className="max-w-full h-24 sm:h-32" loading="lazy" />
+            <img src="/svg/associations/ogilyindia.svg" alt="Ogilvy India" className="max-w-full h-24 sm:h-32 mix-blend-multiply" loading="lazy" />
           </div>
 
           {/* Ninth Item - 1 Column */}
           <div className="flex justify-center items-center border sm:border-l border-b border-[#01193D] p-4 py-4 sm:py-8 col-span-1">
-            <img src="/svg/associations/cry.svg" alt="CRY" className="max-w-full h-24 sm:h-32" loading="lazy"/>
+            <img src="/svg/associations/cry.svg" alt="CRY" className="max-w-full h-24 sm:h-32 mix-blend-multiply" loading="lazy"/>
           </div>
         </div>
       )}
@@ -188,7 +188,7 @@ function Clientele() {
                 <img
                   src={testimonials[currentIndex].logo}
                   alt="Company Logo"
-                  className="h-8 md:h-12"
+                  className="h-8 md:h-12 mix-blend-multiply"
                 />
               </div>
             </div>

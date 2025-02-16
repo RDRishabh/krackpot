@@ -181,8 +181,17 @@ function Navbar() {
       {/* Desktop Layout - Navbar Links, Social Media and Say Hi */}
       <div className="hidden lg:flex flex-col w-full h-full">
         <div className="w-full align-baseline  border-green-500 min-h-[40px] inline-block">
-          <div className="w-[8.8%] border border-[#01193D] border-t-0 border-b-0 border-r-0 h-[2.49em] float-end">
-
+          <div className="border border-[#01193D] border-t-0 border-b-0 border-r-0 h-[2.49em] float-end">
+            <div className="h-full flex items-center">
+              <a
+                href="#contact"
+                className=" px-4 py-2 hover:bg-[#01193D] hover:text-[#DFDFF1] transition-all duration-300 font-extrabold flex items-center justify-center gap-2 opacity-0"
+                onClick={(e) => handleNavClick(e, "#contact")}
+              >
+                SAY HI{" "}
+                <span className="font-light text-xl leading-none">↗</span>
+              </a>
+            </div>
           </div>
         </div>
 
@@ -261,7 +270,7 @@ function Navbar() {
             </div>
 
             {/* Contact Button */}
-            <div className="h-full border border-[#01193D]  border-b-0 border-l-0 flex items-center">
+            <div className="h-full border border-[#01193D]  border-b-0 border-l-0  border-r-0 flex items-center">
               <a
                 href="#contact"
                 className=" px-4 py-2 hover:bg-[#01193D] hover:text-[#DFDFF1] transition-all duration-300 font-extrabold flex items-center justify-center gap-2"
